@@ -24,14 +24,13 @@
 
         <!-- Filter -->
         <div class="card">
-            <div class="card-title">Filter Data</div>
             <div class="filter-row">
                 <div class="form-group">
                     <label>Nama Pemilik</label>
                     <input type="text" id="nameFilter" class="form-input" placeholder="Cari nama...">
                 </div>
                 <div class="form-group">
-                    <label>Merk Mobil</label>
+                    <label>Merk</label>
                     <input type="text" id="brandFilter" class="form-input" placeholder="Cari merk...">
                 </div>
             </div>
@@ -39,6 +38,7 @@
                 <button class="btn btn-success" id="btnApplyFilter">Filter</button>
             </div>
         </div>
+
 
         <!-- Data Table -->
         <div class="card" style="flex: 1; display: flex; flex-direction: column; min-height: 0;">
@@ -74,7 +74,7 @@
                     <span id="pageStart">1</span>-<span id="pageEnd">10</span> dari <span id="totalItems">0</span>
                 </div>
                 <div class="page-controls">
-                    <button class="page-btn" id="btnPrev" disabled>‹</button>
+                    <button class="page-btn  btn-success" id="btnPrev" disabled>‹</button>
                     <div id="pageNumbers"></div>
                     <button class="page-btn" id="btnNext" disabled>›</button>
                 </div>

@@ -9,104 +9,120 @@ body {
     background: #f5f5f5;
     color: #333;
     line-height: 1.5;
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
     padding: 20px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
 }
 
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
 .header {
-    background: white;
-    padding: 24px;
-    border-radius: 8px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+    box-shadow: none;
+    flex-shrink: 0;
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 32px;
     color: #1a1a1a;
-    margin-bottom: 4px;
+    margin-bottom: 0;
+    font-weight: 600;
 }
 
 .header p {
-    color: #666;
-    font-size: 14px;
+    display: none;
 }
 
-.card {
+/* Data Table Card - ATAS */
+.card:nth-child(3) {
     background: white;
-    padding: 24px;
+    padding: 0;
     border-radius: 8px;
-    margin-bottom: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    flex: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0;
+    overflow: hidden;
 }
 
-.card-title {
-    font-size: 16px;
-    font-weight: 600;
+/* Filter Card - BAWAH */
+.card:nth-child(2) {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    color: #1a1a1a;
+    max-width: 350px;
+    order: 3;
+    flex-shrink: 0;
 }
 
 .filter-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 16px;
     margin-bottom: 16px;
 }
 
+.form-group {
+    margin-bottom: 0;
+    width: 100%;
+}
+
 .form-group label {
     display: block;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
-    color: #555;
-    margin-bottom: 4px;
+    color: #333;
+    margin-bottom: 6px;
 }
 
 .form-input {
     width: 100%;
-    padding: 8px 10px;
+    padding: 10px 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 14px;
     transition: border 0.2s;
 }
 
 .form-input:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #16a34a;
 }
 
 .btn-group {
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
 }
 
 .btn {
-    padding: 8px 16px;
+    padding: 12px 16px;
     border: none;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
 }
 
-.btn-primary {
-    background: #2563eb;
+.btn-success {
+    background: #16a34a;
     color: white;
+    width: 100%;
 }
 
-.btn-primary:hover {
-    background: #1d4ed8;
+.btn-success:hover {
+    background: #15803d;
 }
 
 .btn-secondary {
@@ -119,34 +135,12 @@ body {
     background: #f9f9f9;
 }
 
-.btn-success {
-    background: #16a34a;
-    color: white;
-}
-
-.btn-success:hover {
-    background: #15803d;
-}
-
+/* Hide Stats */
 .stats {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
+    display: none;
 }
 
-.stat-item {
-    background: #f8f9fa;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    color: #555;
-}
-
-.stat-item strong {
-    color: #1a1a1a;
-}
-
+/* Table */
 .table-wrapper {
     overflow: auto;
     flex: 1;
@@ -160,66 +154,65 @@ table {
 }
 
 thead {
-    background: #f8f9fa;
+    background: #e5e7eb;
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
 th {
-    padding: 10px;
+    padding: 14px 16px;
     text-align: left;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
-    color: #555;
-    border-bottom: 2px solid #e5e7eb;
+    color: #1a1a1a;
+    border-bottom: 1px solid #d1d5db;
     white-space: nowrap;
 }
 
 td {
-    padding: 10px;
-    font-size: 13px;
+    padding: 14px 16px;
+    font-size: 14px;
     border-bottom: 1px solid #f0f0f0;
+    color: #333;
 }
 
-tr:hover td {
-    background: #fafafa;
+tbody tr:hover {
+    background: #f9fafb;
 }
 
-.color-badge {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 500;
-    color: white;
+tbody tr:last-child td {
+    border-bottom: none;
 }
 
-.btn-sm {
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 4px;
-}
-
+/* Tombol Edit - HIJAU */
 .btn-edit {
-    background: #2563eb;
+    padding: 8px 16px;
+    background: #16a34a;
     color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .btn-edit:hover {
-    background: #1d4ed8;
+    background: #15803d;
 }
 
+/* Pagination */
 .pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
-    padding-top: 12px;
+    padding: 16px 20px;
     border-top: 1px solid #e5e7eb;
-    font-size: 12px;
+    font-size: 13px;
     color: #666;
     flex-shrink: 0;
+    background: white;
 }
 
 .page-controls {
@@ -229,13 +222,14 @@ tr:hover td {
 }
 
 .page-btn {
-    padding: 5px 8px;
+    padding: 6px 10px;
     border: 1px solid #ddd;
     background: white;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
-    min-width: 28px;
+    font-size: 13px;
+    min-width: 32px;
+    text-align: center;
 }
 
 .page-btn:hover:not(:disabled) {
@@ -248,11 +242,12 @@ tr:hover td {
 }
 
 .page-btn.active {
-    background: #2563eb;
+    background: #16a34a;
     color: white;
-    border-color: #2563eb;
+    border-color: #16a34a;
 }
 
+/* Modal - NO SCROLL */
 .modal {
     display: none;
     position: fixed;
@@ -272,14 +267,13 @@ tr:hover td {
     border-radius: 8px;
     width: 100%;
     max-width: 500px;
-    max-height: 85vh;
-    overflow: hidden;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
 }
 
 .modal-header {
-    padding: 16px 20px;
+    padding: 20px;
     border-bottom: 1px solid #e5e7eb;
     display: flex;
     justify-content: space-between;
@@ -288,7 +282,7 @@ tr:hover td {
 }
 
 .modal-header h3 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -311,10 +305,11 @@ tr:hover td {
     padding: 20px;
     overflow-y: auto;
     flex: 1;
+    min-height: 0;
 }
 
-.form-group {
-    margin-bottom: 14px;
+.modal-body .form-group {
+    margin-bottom: 12px;
 }
 
 textarea.form-input {
@@ -327,7 +322,7 @@ select.form-input {
 }
 
 .modal-footer {
-    padding: 12px 20px;
+    padding: 16px 20px;
     border-top: 1px solid #e5e7eb;
     display: flex;
     justify-content: flex-end;
@@ -335,60 +330,23 @@ select.form-input {
     flex-shrink: 0;
 }
 
-.btn-edit-success {
-    background: #16a34a;
-    color: white;
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 12px;
-    }
-
-    .header h1 {
-        font-size: 20px;
-    }
-
-    .filter-row {
-        grid-template-columns: 1fr;
-    }
-
-    .btn-group {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    th,
-    td {
-        padding: 10px 8px;
-        font-size: 13px;
-    }
-}
-
+/* Toast */
 .toast {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 2000;
-
     min-width: 260px;
     max-width: 420px;
-
     padding: 12px 14px;
     border-radius: 10px;
-
     color: #fff;
     font-size: 13px;
     font-weight: 500;
-
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     opacity: 0;
     transform: translateY(-10px);
     pointer-events: none;
-
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -400,13 +358,46 @@ select.form-input {
 .toast.success {
     background: #16a34a;
 }
+
 .toast.error {
     background: #dc2626;
 }
+
 .toast.info {
     background: #2563eb;
 }
+
 .toast.warn {
     background: #f59e0b;
     color: #111;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        height: calc(100vh - 24px);
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    th,
+    td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .card:nth-child(2) {
+        max-width: 100%;
+    }
+
+    .filter-row {
+        flex-direction: column;
+        gap: 14px;
+    }
 }

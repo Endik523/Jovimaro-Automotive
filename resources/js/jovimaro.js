@@ -191,16 +191,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${item.pemilik?.nama ?? "-"}</td>
                     <td>${item.merk ?? "-"}</td>
                     <td>
-                        <span class="color-badge" style="background:${getColorBg(
-                            item.warna
-                        )}">
-                            ${item.warna ?? "-"}
-                        </span>
+                        ${item.warna ?? "-"}
                     </td>
                     <td>${item.pemilik?.alamat ?? "-"}</td>
                     <td>${item.keterangan ?? "-"}</td>
                     <td>
-                        <button class="btn btn-sm btn-edit-success" data-id="${
+                        <button class="btn btn-sm btn-edit" data-id="${
                             item.id
                         }">Edit</button>
                     </td>
