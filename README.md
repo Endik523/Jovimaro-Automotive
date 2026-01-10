@@ -11,62 +11,59 @@ Sebelum menjalankan aplikasi, pastikan kamu sudah menginstal beberapa software b
 3. **Node.js** dan **npm** (atau **Yarn**) untuk frontend.
 4. **MySQL** atau **MariaDB** untuk database.
 
-## Cara Menjalankan Aplikasi
-
+# Cara Menjalankan Aplikasi
 ## 1. Setup Database
 
 Untuk menyiapkan database, ikuti langkah-langkah berikut:
 
-## Buat Database:
+**Buat Database:**
 
-Buat database baru di MySQL atau MariaDB dengan nama jovimaro_automotive (atau nama lain sesuai preferensi).
+Buat database baru di MySQL atau MariaDB dengan nama jovimaroproject (atau nama lain sesuai preferensi).
 
-Kamu bisa menggunakan phpMyAdmin, atau terminal MySQL untuk membuatnya.
+**Contoh perintah SQL untuk membuat database:**
 
-Contoh perintah SQL untuk membuat database:
-
-CREATE DATABASE jovimaro_automotive;
+CREATE DATABASE jovimaroproject;
 
 
-Atur Koneksi Database di .env:
+**Atur Koneksi Database di** .env:
 
 Edit file .env yang ada di folder root proyek dan pastikan pengaturan database sesuai dengan database yang baru kamu buat.
 
-Contoh pengaturan .env:
+**Contoh pengaturan** .env:
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=jovimaro_automotive
+DB_DATABASE=jovimaroproject
 DB_USERNAME=root
 DB_PASSWORD=
 
 
-Pastikan nilai DB_USERNAME dan DB_PASSWORD sesuai dengan kredensial yang kamu gunakan di MySQL/MariaDB.
+Pastikan nilai **DB_USERNAME** dan **DB_PASSWORD** sesuai dengan kredensial yang kamu gunakan di MySQL/MariaDB.
 
 ## 2. Menjalankan Backend (Laravel)
 
 Untuk menjalankan backend aplikasi, ikuti langkah-langkah berikut:
 
-Install Dependencies PHP:
+**Install Dependencies PHP:**
 
 Pastikan kamu sudah berada di folder proyek Laravel di terminal, lalu jalankan perintah ini untuk menginstal dependencies PHP dengan Composer:
 
 composer install
 
 
-Jalankan Migration untuk Membuat Tabel:
+**Jalankan Migration untuk Membuat Tabel:**
 
 Setelah dependencies diinstal, jalankan migration untuk membuat tabel di database dengan perintah:
 
 php artisan migrate
 
 
-Jalankan Backend:
+**Jalankan Backend:**
 
 Setelah migration selesai, jalankan server backend menggunakan perintah berikut:
 
-**php artisan serve**
+php artisan serve
 
 
 Server akan berjalan di http://localhost:8000 (atau port yang kamu tentukan).
@@ -75,14 +72,14 @@ Server akan berjalan di http://localhost:8000 (atau port yang kamu tentukan).
 
 Untuk menjalankan frontend aplikasi, ikuti langkah-langkah berikut:
 
-Install Dependencies Frontend:
+**Install Dependencies Frontend:**
 
 Pindah ke folder frontend (jika terpisah), lalu jalankan perintah ini untuk menginstal dependencies menggunakan npm:
 
 npm install
 
 
-Jalankan Frontend:
+**Jalankan Frontend:**
 
 Setelah dependencies diinstal, jalankan server frontend dengan perintah berikut:
 
@@ -95,77 +92,79 @@ Aplikasi frontend akan berjalan di http://localhost:5173 (atau port lain yang di
 
 Berikut adalah beberapa API endpoint yang tersedia di aplikasi ini:
 
-Endpoint GET
+## Endpoint GET
 
-Get All Vehicles
+**1. Get All Vehicles**
 
-URL: /api/vehicles
+URL: /api/pemilik-kendaraan
 
 Method: GET
 
 Response: List kendaraan dalam format JSON.
 
-Get Vehicle by ID
+**2. Get Vehicle by ID**
 
-URL: /api/vehicles/{id}
+URL: /api/pemilik-kendaraan/{pemilikKendaraan}
 
 Method: GET
 
 Response: Data kendaraan berdasarkan ID.
 
-Endpoint POST
+## Endpoint POST
 
-Create New Vehicle
+**3. Create New Vehicle**
 
-URL: /api/vehicles
+URL: /api/pemilik-kendaraan
 
 Method: POST
 
 Body:
 
 {
-  "owner_name": "John Doe",
-  "car_brand": "Toyota",
-  "color": "Red",
-  "address": "Jl. Merdeka No. 123",
-  "description": "Mobil baru"
+  "nama": "John Doe",
+  "alamat": "Jl. Merdeka No. 123",
+  "merk": "Toyota",
+  "warna": "Red",
+  "keterangan": "Mobil baru",
+  "aktif": true
 }
 
 
 Response: Status berhasil atau gagal menambahkan kendaraan.
 
-Endpoint PUT
+## Endpoint PUT
 
-Update Vehicle Data
+**4. Update Vehicle Data**
 
-URL: /api/vehicles/{id}
+URL: /api/pemilik-kendaraan/{pemilikKendaraan}
 
 Method: PUT
 
 Body:
 
 {
-  "owner_name": "Jane Doe",
-  "car_brand": "Honda",
-  "color": "Blue",
-  "address": "Jl. Sudirman No. 456",
-  "description": "Mobil bekas"
+  "nama": "Jane Doe",
+  "alamat": "Jl. Sudirman No. 456",
+  "merk": "Honda",
+  "warna": "Blue",
+  "keterangan": "Mobil bekas",
+  "aktif": true
 }
 
 
 Response: Status berhasil atau gagal memperbarui data kendaraan.
 
-Endpoint DELETE
+## Endpoint DELETE
 
-Delete Vehicle
+**5. Delete Vehicle**
 
-URL: /api/vehicles/{id}
+URL: /api/pemilik-kendaraan/{pemilikKendaraan}
 
 Method: DELETE
 
 Response: Status berhasil atau gagal menghapus kendaraan.
 
- ## 5. Penutupan
+## 5. Penutupan
 
 Jika kamu mengikuti langkah-langkah di atas, aplikasi seharusnya sudah bisa berjalan di lingkungan lokal kamu.
 
@@ -178,17 +177,3 @@ Jika Laravel tidak berjalan dengan baik: Pastikan kamu sudah menjalankan migrati
 Jika tidak bisa mengakses API: Periksa apakah server Laravel sedang berjalan di http://localhost:8000 (atau port lain).
 
 Cek Log Laravel: Kamu bisa memeriksa file log di storage/logs/laravel.log untuk mengetahui error lebih lanjut.
-
-Cara Mengupload README ke GitHub
-
-Buat File README.md:
-
-Di folder root proyek kamu, buat file README.md dan isi dengan instruksi di atas.
-
-Commit dan Push ke GitHub:
-
-Setelah membuat atau memperbarui file README.md, tambahkan dan commit file tersebut:
-
-git add README.md
-git commit -m "Add README with setup instructions"
-git push origin master
