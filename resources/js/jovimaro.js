@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${item.pemilik?.alamat ?? "-"}</td>
                     <td>${item.keterangan ?? "-"}</td>
                     <td>
-                        <button class="btn btn-sm btn-edit" data-id="${
+                        <button class="btn btn-sm btn-edit" data-action="edit" data-id="${
                             item.id
                         }">Edit</button>
                     </td>
@@ -377,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // EDIT CLICK
     tbody.addEventListener("click", (e) => {
-        const btn = e.target.closest(".btn-edit-success");
+        const btn = e.target.closest('[data-action="edit"]');
         if (!btn) return;
 
         const id = Number(btn.dataset.id);

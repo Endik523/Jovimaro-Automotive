@@ -52,7 +52,7 @@
                     <thead>
                         <tr>
                             <th>Pemilik</th>
-                            <th>Merk</th>
+                            <th>Merk Mobil</th>
                             <th>Warna</th>
                             <th>Alamat</th>
                             <th>Keterangan</th>
