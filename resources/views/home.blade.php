@@ -16,13 +16,11 @@
 
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <h1>Jovimaro Automotive</h1>
             <p>Manajemen Data Pemilik Kendaraan</p>
         </div>
 
-        <!-- Filter -->
         <div class="card">
             <div class="filter-row">
                 <div class="form-group">
@@ -39,8 +37,6 @@
             </div>
         </div>
 
-
-        <!-- Data Table -->
         <div class="card" style="flex: 1; display: flex; flex-direction: column; min-height: 0;">
             <div class="stats">
                 <div class="stat-item">Total: <strong id="totalRecords">0</strong></div>
@@ -74,7 +70,7 @@
                     <span id="pageStart">1</span>-<span id="pageEnd">10</span> dari <span id="totalItems">0</span>
                 </div>
                 <div class="page-controls">
-                    <button class="page-btn  btn-success" id="btnPrev" disabled>‹</button>
+                    <button class="page-btn btn-success" id="btnPrev" disabled>‹</button>
                     <div id="pageNumbers"></div>
                     <button class="page-btn" id="btnNext" disabled>›</button>
                 </div>
@@ -82,7 +78,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
     <div class="modal" id="modalOverlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -129,7 +124,6 @@
     </div>
 
     <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
-
 </body>
 
 </html>

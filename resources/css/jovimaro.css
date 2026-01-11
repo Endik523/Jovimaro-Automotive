@@ -21,7 +21,6 @@ body {
     flex-direction: column;
 }
 
-/* Header */
 .header {
     background: transparent;
     padding: 0;
@@ -45,7 +44,6 @@ body {
     background: #f5f5f5;
     padding: 0;
     border-radius: 8px;
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
     margin-bottom: 20px;
     flex: 1;
     display: flex !important;
@@ -58,7 +56,6 @@ body {
     background: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
     margin-bottom: 20px;
     max-width: 350px;
     order: 3;
@@ -138,7 +135,7 @@ body {
 }
 
 .table-wrapper {
-    overflow: auto;
+    overflow: visible;
     flex: 1;
     min-height: 0;
 }
