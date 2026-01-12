@@ -46,15 +46,33 @@ Edit file .env yang ada di folder root proyek dan pastikan pengaturan database s
 
 Pastikan nilai **DB_USERNAME** dan **DB_PASSWORD** sesuai dengan kredensial yang kamu gunakan di MySQL/MariaDB.
 
-## 2. Menjalankan Backend (Laravel)
+## 2. Menjalankan Backend API (Node.js)
 
-Untuk menjalankan backend aplikasi, ikuti langkah-langkah berikut:
+Backend API aplikasi ini menggunakan Node.js (Express) dan berjalan di port 3000.
 
-**Install Dependencies PHP:**
+**Masuk ke folder Node API:**
 
-Pastikan kamu sudah berada di folder proyek Laravel di terminal, lalu jalankan perintah ini untuk menginstal dependencies PHP dengan Composer:
+cd node-api
 
-composer install
+
+**Install dependency:**
+
+npm install
+
+
+**Jalankan server API:**
+
+node index.js
+
+
+**atau kalau kamu pakai nodemon:**
+
+npm run dev
+
+
+**Server akan berjalan di:**
+
+http://127.0.0.1:3000
 
 
 **Jalankan Migration untuk Membuat Tabel:**
@@ -83,17 +101,32 @@ Pindah ke folder frontend (jika terpisah), lalu jalankan perintah ini untuk meng
 
 npm install
 
+**Install dependency Laravel:**
 
-**Jalankan Frontend:**
+composer install
 
-Setelah dependencies diinstal, jalankan server frontend dengan perintah berikut:
+
+**Jalankan server Laravel (untuk tampilan web):**
+
+php artisan serve
+
+
+Laravel akan berjalan di:
+
+http://127.0.0.1:8000
+
+## 4. Konfigurasi ENV yang penting (Frontend → Node API)
+
+Pastikan .env Laravel punya:
+
+VITE_API_BASE_URL=http://127.0.0.1:3000
+
+
+Setelah ubah .env, jalankan ulang Vite:
 
 npm run dev
 
-
-Aplikasi frontend akan berjalan di http://localhost:5173 (atau port lain yang dikonfigurasi).
-
-## 4. Daftar API Endpoint
+## 5. Daftar API Endpoint
 
 Berikut adalah beberapa API endpoint yang tersedia di aplikasi ini:
 
@@ -169,16 +202,65 @@ Method: DELETE
 
 Response: Status berhasil atau gagal menghapus kendaraan.
 
-## 5. Penutupan
+## 6. Penutupan
 
 Jika kamu mengikuti langkah-langkah di atas, aplikasi seharusnya sudah bisa berjalan di lingkungan lokal kamu.
 
 Proses untuk men-deploy aplikasi ke server atau platform hosting seperti Heroku atau DigitalOcean juga bisa dilakukan jika kamu ingin aplikasi berjalan secara online. Jika ada pertanyaan atau kesalahan, pastikan untuk memeriksa pesan error di terminal atau log aplikasi.
 
-## 6. Tips Debugging
+## 7. Tips Debugging
 
-Jika Laravel tidak berjalan dengan baik: Pastikan kamu sudah menjalankan migration dan seeder dengan benar.
+**1) Data tidak muncul di tabel (mentok “Memuat data…”)**
 
-Jika tidak bisa mengakses API: Periksa apakah server Laravel sedang berjalan di http://localhost:8000 (atau port lain).
+Pastikan Node API hidup: buka
 
-Cek Log Laravel: Kamu bisa memeriksa file log di storage/logs/laravel.log untuk mengetahui error lebih lanjut.
+**http://127.0.0.1:3000/api/pemilik-kendaraan**
+
+Kalau tidak kebuka → Node belum jalan / error.
+
+Buka Console browser (F12) → cek ada log:
+
+JOVIMARO JS LOADED ✅
+
+FETCH: ...
+
+**2) Error CORS / “Failed to fetch”**
+
+Pastikan CORS di Node mengizinkan origin Laravel:
+
+http://127.0.0.1:8000
+
+http://localhost:8000
+
+**3) URL API salah (frontend masih ke Laravel)**
+
+Pastikan semua request menuju Node:
+
+**http://127.0.0.1:3000/api/pemilik-kendaraan**
+
+Pastikan .env Laravel ada:
+
+VITE_API_BASE_URL=http://127.0.0.1:3000
+
+
+Setelah ubah .env, restart Vite:
+
+npm run dev
+
+**4) Node API error / database error**
+
+Cek terminal Node saat jalanin node index.js
+
+Pastikan MySQL hidup (XAMPP)
+
+DB_PORT MySQL harus 3306, bukan 3000
+(3000 itu port Node API)
+
+**5) Edit tidak jalan**
+
+Buka DevTools → Network
+
+Pastikan request:
+PUT http://127.0.0.1:3000/api/pemilik-kendaraan/{id}
+
+Lihat status response harus 200, kalau 500 cek terminal Node.
