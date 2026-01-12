@@ -31,12 +31,17 @@ Edit file .env yang ada di folder root proyek dan pastikan pengaturan database s
 
 **Contoh pengaturan** .env:
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=jovimaroproject
-DB_USERNAME=root
-DB_PASSWORD=
+**DB_CONNECTION**=mysql
+
+**DB_HOST**=127.0.0.1
+
+**DB_PORT**=3306
+
+**DB_DATABASE**=jovimaroproject
+
+**DB_USERNAME**=root
+
+**DB_PASSWORD**=
 
 
 Pastikan nilai **DB_USERNAME** dan **DB_PASSWORD** sesuai dengan kredensial yang kamu gunakan di MySQL/MariaDB.
