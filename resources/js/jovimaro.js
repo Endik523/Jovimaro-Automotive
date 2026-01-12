@@ -2,7 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("JOVIMARO JS LOADED ✅");
 
     // CONFIG
-    const API_URL = "/api/pemilik-kendaraan";
+    const API_BASE = (
+        import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:3000"
+    ).replace(/\/+$/, "");
+
+    const API_URL = `${API_BASE}/api/pemilik-kendaraan`;
+
+    console.log("API_BASE:", API_BASE);
+    console.log("API_URL:", API_URL);
 
     // ELEMENTS
     const tbody = document.getElementById("dataTableBody");
@@ -111,17 +118,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function buildUrl(page = 1) {
-        const url = new URL(API_URL, window.location.origin);
+        const url = new URL(API_URL);
 
         const nama = nameFilter.value.trim();
         const merk = brandFilter.value.trim();
 
         if (nama) url.searchParams.set("nama", nama);
+        else url.searchParams.delete("nama");
+
         if (merk) url.searchParams.set("merk", merk);
+        else url.searchParams.delete("merk");
 
         url.searchParams.set("page", page);
 
-        return url.pathname + url.search;
+        return url.toString();
     }
 
     // DEBOUNCE AUTO LOAD
