@@ -220,7 +220,7 @@ Kalau tidak kebuka → Node belum jalan / error.
 
 Buka Console browser (F12) → cek ada log:
 
-JOVIMARO JS LOADED ✅
+JOVIMARO JS LOADED (Berhasil)
 
 FETCH: ...
 
